@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import Image from "next/image";
+import { Twitter, Instagram } from "lucide-react";
 
 const Community = () => {
   const ref = useRef(null);
@@ -54,7 +56,7 @@ const Community = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold text-lg"
+            className="px-8 py-4 bg-gray-900 text-white rounded-full font-semibold text-lg"
           >
             Join Community
           </motion.button>
@@ -102,7 +104,15 @@ const Community = () => {
               style={{ left: profile.x, top: profile.y }}
             >
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-blue to-primary-orange rounded-full border-4 border-white shadow-lg" />
+                <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden">
+                  <Image
+                    src="/assets/boy.jpg"
+                    alt="Community member"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 {profile.message && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -122,18 +132,27 @@ const Community = () => {
 
           {/* Social Media Icons */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4">
-            {["twitter", "instagram", "tiktok"].map((social, index) => (
-              <motion.div
-                key={social}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: index * 0.1 + 1, duration: 0.5 }}
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                className="w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center"
-              >
-                <div className="w-6 h-6 bg-primary-blue rounded" />
-              </motion.div>
-            ))}
+            {[
+              { name: "twitter", icon: Twitter },
+              { name: "instagram", icon: Instagram },
+              { name: "tiktok", icon: Twitter }, // Using Twitter as placeholder for TikTok
+            ].map((social, index) => {
+              const IconComponent = social.icon;
+              return (
+                <motion.a
+                  key={social.name}
+                  href="#"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ delay: index * 0.1 + 1, duration: 0.5 }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  className="w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
+                  aria-label={social.name}
+                >
+                  <IconComponent className="w-5 h-5 text-primary-blue" />
+                </motion.a>
+              );
+            })}
           </div>
         </motion.div>
       </div>

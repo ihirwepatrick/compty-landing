@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-20 md:pt-24 container mx-auto">
+    <section id="home" className="container mx-auto">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Left Content */}
         <motion.div
