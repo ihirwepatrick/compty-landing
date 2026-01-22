@@ -13,24 +13,27 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote:
-        "Campty made my camping experience unforgettable. The guides were knowledgeable and the locations were breathtaking!",
+        "Thanks to Campty I can now realize my dream of camping around the world",
       name: "Wade Warren",
       role: "Photographer",
-      avatar: "WW",
+      avatarBg: "bg-blue-200",
+      rating: 5,
     },
     {
       quote:
-        "I've been using Campty for years now. It's the best way to discover new camping spots and meet fellow adventurers.",
+        "I think this is the best camping service I have ever tried and I recommend it to you",
       name: "Theresa Jordan",
       role: "Traveler",
-      avatar: "TJ",
+      avatarBg: "bg-pink-200",
+      rating: 4,
     },
     {
       quote:
-        "The booking process is so easy, and the community is amazing. Highly recommend for any outdoor enthusiast!",
+        "Campty helps me a lot in finding interesting camping destinations",
       name: "James Wilson",
       role: "Climber",
-      avatar: "JW",
+      avatarBg: "bg-green-200",
+      rating: 3,
     },
   ];
 
@@ -45,30 +48,50 @@ const Testimonials = () => {
   return (
     <section
       ref={ref}
-      className="bg-white container mx-auto"
+      className="bg-gradient-to-br from-white to-blue-50 container mx-auto relative"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-16 h-16 mx-auto mb-8"
-      >
-        <img
-          src="/assets/line-1.svg"
-          alt="Decorative line"
-          className="w-full h-full object-contain"
-          style={{ filter: "brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(2878%) hue-rotate(212deg) brightness(96%) contrast(96%)" }}
-        />
-      </motion.div>
+      {/* Decorative Elements */}
+      <div className="relative">
+        {/* Two dashed blue lines to the left of heading */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="absolute left-0 top-8 flex flex-col gap-2"
+        >
+          <div className="w-12 h-0.5 border-t-2 border-dashed border-primary-blue transform rotate-12" />
+          <div className="w-12 h-0.5 border-t-2 border-dashed border-primary-blue transform rotate-12" />
+        </motion.div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="text-3xl md:text-5xl font-bold text-gray-900 text-center mb-16"
-      >
-        Satisfied Customers Are Our Best Ads.
-      </motion.h2>
+        {/* Wavy lines with arrows above and to the right */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="absolute right-0 top-0 flex flex-col gap-2"
+        >
+          <svg className="w-16 h-8 text-primary-blue opacity-60" viewBox="0 0 100 50" fill="none">
+            <path d="M10,30 Q30,10 50,30 T90,30" stroke="currentColor" strokeWidth="2" fill="none" />
+            <path d="M85,25 L90,30 L85,35" stroke="currentColor" strokeWidth="2" fill="none" />
+          </svg>
+          <svg className="w-16 h-8 text-primary-blue opacity-60" viewBox="0 0 100 50" fill="none">
+            <path d="M10,20 Q30,40 50,20 T90,20" stroke="currentColor" strokeWidth="2" fill="none" />
+            <path d="M85,15 L90,20 L85,25" stroke="currentColor" strokeWidth="2" fill="none" />
+          </svg>
+        </motion.div>
+
+        {/* Heading with line break */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-3xl md:text-5xl font-bold text-gray-900 text-center mb-16 pt-8"
+        >
+          Satisfied Customers Are
+          <br />
+          Our Best Ads.
+        </motion.h2>
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8">
@@ -82,29 +105,41 @@ const Testimonials = () => {
                   : { opacity: 0, y: 50 }
               }
               transition={{ delay: index * 0.2, duration: 0.8 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow"
+              whileHover={{ scale: 1.02, y: -2 }}
+              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="text-primary-blue text-6xl font-bold mb-4">
+              {/* Large Blue Quote Icon */}
+              <div className="text-primary-blue text-7xl font-bold mb-4 leading-none">
                 "
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              
+              {/* Testimonial Text */}
+              <p className="text-gray-700 mb-6 leading-relaxed text-base">
                 {testimonial.quote}
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-blue to-primary-orange rounded-full flex items-center justify-center text-white font-bold">
-                  {testimonial.avatar}
+              
+              {/* Customer Info */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-12 h-12 ${testimonial.avatarBg} rounded-full flex items-center justify-center flex-shrink-0 relative overflow-hidden`}>
+                  {/* Cartoonish avatar placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-gray-400 rounded-full" />
+                    </div>
+                  </div>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="font-semibold text-gray-900 text-sm">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-xs text-gray-500">
                     {testimonial.role}
                   </div>
                 </div>
               </div>
-              <div className="flex gap-1 mt-4">
+              
+              {/* Star Rating */}
+              <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -112,7 +147,11 @@ const Testimonials = () => {
                     animate={isInView ? { scale: 1 } : { scale: 0 }}
                     transition={{ delay: index * 0.2 + i * 0.1 + 0.5 }}
                   >
-                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    {i < testimonial.rating ? (
+                      <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    ) : (
+                      <Star className="w-4 h-4 text-gray-300 fill-none stroke-2" />
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -120,25 +159,25 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
-        <div className="hidden md:flex absolute -right-12 top-1/2 transform -translate-y-1/2 gap-4">
+        {/* Navigation Arrows - Black Outline */}
+        <div className="hidden md:flex absolute -right-16 top-1/2 transform -translate-y-1/2 gap-2">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePrev}
-            className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+            className="w-10 h-10 border-2 border-gray-900 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 text-gray-900" />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
-            className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+            className="w-10 h-10 border-2 border-gray-900 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 text-gray-900" />
           </motion.button>
         </div>
       </div>
