@@ -45,17 +45,20 @@ const Testimonials = () => {
   return (
     <section
       ref={ref}
-      className="bg-white container mx-auto px-4"
+      className="bg-white container mx-auto"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-16 h-16 text-primary-blue mx-auto mb-8"
+        className="w-16 h-16 mx-auto mb-8"
       >
-        <svg viewBox="0 0 100 100" fill="currentColor">
-          <path d="M10,50 Q30,20 50,50 T90,50" stroke="currentColor" strokeWidth="3" fill="none" />
-        </svg>
+        <img
+          src="/assets/line-1.svg"
+          alt="Decorative line"
+          className="w-full h-full object-contain"
+          style={{ filter: "brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(2878%) hue-rotate(212deg) brightness(96%) contrast(96%)" }}
+        />
       </motion.div>
 
       <motion.h2

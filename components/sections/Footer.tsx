@@ -29,7 +29,7 @@ const Footer = () => {
       transition={{ duration: 0.8 }}
       className="bg-primary-blue text-white py-8 md:py-12"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Logo & Description */}
           <motion.div

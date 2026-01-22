@@ -38,7 +38,7 @@ const Header = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm"
     >
-      <nav className="container mx-auto px-4 md:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <nav className="container mx-auto py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}

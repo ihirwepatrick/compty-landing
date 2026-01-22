@@ -23,7 +23,7 @@ const Statistics = () => {
       transition={{ duration: 0.8 }}
       className="bg-primary-blue py-8 md:py-12"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
