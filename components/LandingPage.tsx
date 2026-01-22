@@ -12,7 +12,7 @@ import Footer from "@/components/sections/Footer";
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen mx-auto max-w-[1920px] px-6 md:px-12 lg:px-24 overflow-x-hidden flex flex-col gap-8 md:gap-12">
+    <div className="min-h-screen mx-auto max-w-[1920px] px-6 md:px-12 lg:px-24 overflow-x-hidden flex flex-col gap-0 md:gap-12">
       <Header />
       <Hero />
       <Statistics /> 
