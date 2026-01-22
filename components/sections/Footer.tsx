@@ -14,7 +14,6 @@ const Footer = () => {
     resources: ["Events", "Promo", "Req Demo"],
     support: ["Account", "Support Center", "Feedback", "Contact Us", "Accessibility"],
   };
-
   const socialIcons = [
     { name: "instagram", icon: Instagram },
     { name: "facebook", icon: Facebook },
@@ -165,7 +164,8 @@ const Footer = () => {
           transition={{ delay: 0.7, duration: 0.6 }}
           className="border-t border-white/20 pt-8 text-center text-white/60"
         >
-          <p>Copyright © 2022 Campty. All right reserved.</p>
+          
+          <p>Copyright © 2024 Campty. All right reserved.</p>
         </motion.div>
       </div>
     </motion.footer>

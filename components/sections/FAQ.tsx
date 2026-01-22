@@ -26,7 +26,7 @@ const FAQ = () => {
     <section
       ref={ref}
       id="contact"
-      className="bg-gray-50 container mx-auto"
+      className="bg-gray-50 container mx-auto p-16"
     >
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left - Contact Form */}
@@ -56,20 +56,20 @@ const FAQ = () => {
             If there are questions you want to ask, we will answer all your
             questions.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="flex flex-row rounded-full bg-white border-2 border-gray-200">
             <input
               type="email"
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border-12 border-gray-200 rounded-lg focus:outline-none focus:border-primary-blue"
+              className="w-full px-4 h-16 rounded-l-full border-gray-200 rounded-lg focus:outline-none focus:border-primary-blue"
               required
             />
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold text-lg"
+              className="w-auto px-8 h-16 bg-gray-900 text-white rounded-full font-semibold text-lg"
             >
               Submit
             </motion.button>
