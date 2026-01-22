@@ -26,7 +26,7 @@ const FAQ = () => {
     <section
       ref={ref}
       id="contact"
-      className="py-16 md:py-24 bg-gray-50 container mx-auto px-4"
+      className="bg-gray-50 container mx-auto px-4"
     >
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left - Contact Form */}

@@ -21,7 +21,7 @@ const Statistics = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-primary-blue py-12 md:py-16"
+      className="bg-primary-blue py-8 md:py-12"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">

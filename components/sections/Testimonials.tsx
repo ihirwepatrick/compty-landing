@@ -45,7 +45,7 @@ const Testimonials = () => {
   return (
     <section
       ref={ref}
-      className="py-16 md:py-24 bg-white container mx-auto px-4"
+      className="bg-white container mx-auto px-4"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0 }}

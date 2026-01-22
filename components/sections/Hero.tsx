@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="pt-24 pb-16 md:pt-32 md:pb-24 container mx-auto px-4"
+      className="pt-20 md:pt-24 container mx-auto px-4"
     >
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Left Content */}

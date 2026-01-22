@@ -21,7 +21,7 @@ const Community = () => {
   return (
     <section
       ref={ref}
-      className="py-16 md:py-24 container mx-auto px-4"
+      className="container mx-auto px-4"
     >
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
