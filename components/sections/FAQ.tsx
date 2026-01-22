@@ -18,7 +18,7 @@ const FAQ = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    // Handle form submission (added just for later usage)
     console.log("Email submitted:", email);
   };
 
@@ -62,7 +62,7 @@ const FAQ = () => {
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary-blue"
+              className="w-full px-4 py-3 border-12 border-gray-200 rounded-lg focus:outline-none focus:border-primary-blue"
               required
             />
             <motion.button

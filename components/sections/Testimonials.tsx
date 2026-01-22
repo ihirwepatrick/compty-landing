@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
   const ref = useRef(null);
@@ -48,7 +48,7 @@ const Testimonials = () => {
   return (
     <section
       ref={ref}
-      className="bg-gradient-to-br from-white to-blue-50 container mx-auto relative"
+      className="bg-gradient-to-br from-white to-blue-50 container mx-auto relative py-12"
     >
       {/* Decorative Elements */}
       <div className="relative">
@@ -63,21 +63,39 @@ const Testimonials = () => {
           <div className="w-12 h-0.5 border-t-2 border-dashed border-primary-blue transform rotate-12" />
         </motion.div>
 
-        {/* Wavy lines with arrows above and to the right */}
+        {/* Navigation Arrows - Ajust bove Cards */}
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="absolute right-0 top-0 flex flex-col gap-2"
+          className="absolute right-0 top-0 flex items-center gap-2 px-24 py-24"
         >
-          <svg className="w-16 h-8 text-primary-blue opacity-60" viewBox="0 0 100 50" fill="none">
-            <path d="M10,30 Q30,10 50,30 T90,30" stroke="currentColor" strokeWidth="2" fill="none" />
-            <path d="M85,25 L90,30 L85,35" stroke="currentColor" strokeWidth="2" fill="none" />
-          </svg>
-          <svg className="w-16 h-8 text-primary-blue opacity-60" viewBox="0 0 100 50" fill="none">
-            <path d="M10,20 Q30,40 50,20 T90,20" stroke="currentColor" strokeWidth="2" fill="none" />
-            <path d="M85,15 L90,20 L85,25" stroke="currentColor" strokeWidth="2" fill="none" />
-          </svg>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handlePrev}
+            className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity"
+            aria-label="Previous testimonial"
+          >
+            <img
+              src="/assets/arrow-right.svg"
+              alt="Previous"
+              className="w-14 h-14 transform rotate-180"
+            />
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleNext}
+            className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity"
+            aria-label="Next testimonial"
+          >
+            <img
+              src="/assets/arrow-right.svg"
+              alt="Next"
+              className="w-14 h-14"
+            />
+          </motion.button>
         </motion.div>
 
         {/* Heading with line break */}
@@ -109,10 +127,7 @@ const Testimonials = () => {
               className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Large Blue Quote Icon */}
-              <div className="text-primary-blue text-7xl font-bold mb-4 leading-none">
-                "
-              </div>
-              
+          <Quote className="w-6 h-6 text-primary-blue transform rotate-12 mb-4" />              
               {/* Testimonial Text */}
               <p className="text-gray-700 mb-6 leading-relaxed text-base">
                 {testimonial.quote}
@@ -159,27 +174,6 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows - Black Outline */}
-        <div className="hidden md:flex absolute -right-16 top-1/2 transform -translate-y-1/2 gap-2">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handlePrev}
-            className="w-10 h-10 border-2 border-gray-900 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-900" />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handleNext}
-            className="w-10 h-10 border-2 border-gray-900 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-900" />
-          </motion.button>
-        </div>
       </div>
     </section>
   );
